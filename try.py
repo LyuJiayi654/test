@@ -1,6 +1,7 @@
 import sys
 
 import pandas
+import numpy
 
 
 def load_data(file_path):
