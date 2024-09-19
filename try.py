@@ -1,7 +1,5 @@
-import numpy
-import sys
 import pandas
-import model.hello
+import sys
 
 
 def load_data(file_path):
@@ -14,6 +12,3 @@ def load_data(file_path):
     except Exception as e:
         print(f"An error occurred while loading the data: {str(e)}")
         sys.exit(1)
-
-
-print(f"An error occurred while loading the data:An error occurred while loading the data:An error occurred while loading the data:An error occurred while loading the data:An error occurred while loading the data:An error occurred while loading the data:An error occurred while loading the data:An error occurred while loading the data:An error occurred while loading the data:An error occurred while loading the data:")
