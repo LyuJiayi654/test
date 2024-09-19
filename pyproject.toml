@@ -39,8 +39,6 @@ lint.select = [
 ]
 
 lint.ignore = [
-    "E501", # "Line too long"
-    # -> line length already regulated by black
     "PT011", # "pytest.raises() should specify expected exception"
     # -> would imply to update tests every time you update exception message
     "SIM102", # "Use a single `if` statement instead of nested `if` statements"
@@ -53,7 +51,8 @@ lint.ignore = [
     "D105",
     "D106",
     "D107",
-    "F401"
+    "F401",
+    "F541"
     # -> "Missing docstring in public function too restrictive"
 ]
 
