@@ -16,4 +16,5 @@ def load_data(file_path):
         print(f"An error occurred while loading the data:")
         sys.exit(1)
 
+
 print(f"An error occurred while loading the data:")
