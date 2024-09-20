@@ -1,6 +1,4 @@
 #!/usr/bin/bash
 echo hello world
-
-poetry run ruff check model
-
-poetry run black --diff model
+poetry run black --diff model || exit 1
+poetry run ruff check model || exit 1
