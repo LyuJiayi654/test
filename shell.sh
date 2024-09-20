@@ -1,5 +1,5 @@
 echo hello world
 
-poetry run ruff model
+poetry run ruff check model
 
 poetry run black --diff model
