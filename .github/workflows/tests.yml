@@ -25,7 +25,7 @@ jobs:
         - uses: actions/checkout@v4
         - uses:  ./.github/workflows/actions/install_independencies/
         - name: run balck
-          run: poetry run black --diff
+          run: poetry run black --diff ../../model/
 
   all_checks_passed:
     # Used to easily force requirements checks in GitHub
