@@ -1,3 +1,5 @@
 echo hello world
 
-# ruff check model
+ruff check model
+
+black --diff model
