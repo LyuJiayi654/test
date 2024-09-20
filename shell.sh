@@ -1,2 +1,2 @@
 echo hello world
-poetry run ruff check model
+ruff check model
