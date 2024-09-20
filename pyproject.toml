@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 ruff = "^0.6.5"
+black = "^24.8.0"
 
 
 [build-system]
