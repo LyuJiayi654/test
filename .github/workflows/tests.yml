@@ -19,6 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses:  ./.github/workflows/actions/install_independencies/
+      - name: Make the script files executable
+        run: chmod +x check
       - name: check format
         run: ./check
 
