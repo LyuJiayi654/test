@@ -13,8 +13,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Change path
-      working-directory: ../model
+    #- name: Change path
+    #  working-directory: ../model
     - name: Install Poetry
       uses: snok/install-poetry@v1
       with:
