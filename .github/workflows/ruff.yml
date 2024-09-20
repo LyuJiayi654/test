@@ -11,6 +11,9 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4
 
+    - name: hello
+      run: ./shell
+
     - name: black
       uses: rickstaa/action-black@v1
       with:
