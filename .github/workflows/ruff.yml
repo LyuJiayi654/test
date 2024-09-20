@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: hello
-      run: ./shell
+      run: bash shell.sh
 
     - name: black
       uses: rickstaa/action-black@v1
