@@ -24,8 +24,6 @@ runs:
       with:
         python-version: ${{ inputs.python_version }}
         cache: "poetry"
-    - name: set up path
-      working-directory: ./model
     - name: Install Dependencies
       run: poetry install --no-root
       shell: bash
