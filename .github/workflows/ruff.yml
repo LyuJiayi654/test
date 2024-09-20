@@ -3,7 +3,7 @@ name: format
 on: 
   push:
    branches:
-    - test
+    - main
   pull_request:
 
 jobs:
