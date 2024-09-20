@@ -9,25 +9,29 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/install_independencies/
 
-  checks:
+  ruff:
     needs: setup
     runs-on: ubuntu-latest
-    name: ${{ matrix.quality-command }}
-    strategy:
-      matrix:
-        quality-command:
-          - black
-          - ruff
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/actions/install_independencies/
-      - name: run ${{ matrix.quality-command }}
-        run: make ${{ matrix.quality-command }}
+      - uses:  ./.github/workflows/actions/install_independencies/
+      - name: run ruff
+        run: poetry run ruff check
+
+  black:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+        - uses:  ./.github/workflows/actions/install_independencies/
+        - name: run balck
+          run: poetry run black --diff
 
   all_checks_passed:
     # Used to easily force requirements checks in GitHub
     needs:
-      - checks
+      - ruff
+      - black
     runs-on: ubuntu-latest
     steps:
       - run: echo "All checks passed"
