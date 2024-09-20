@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/actions/install_dependencies
+      - uses: .github/workflows/actions/install_independencies
 
   checks:
     needs: setup
@@ -20,7 +20,7 @@ jobs:
           - ruff
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/actions/install_dependencies
+      - uses: .github/workflows/actions/install_independencies
       - name: run ${{ matrix.quality-command }}
         run: make ${{ matrix.quality-command }}
 
