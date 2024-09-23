@@ -21,20 +21,9 @@ jobs:
       - name: Install Dependencies
         working-directory: model
         run: poetry install --no-root
-  #       # shell: bash
-
-  # check:
-  #   needs: setup
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses:  ./.github/workflows/actions/install_independencies/
       - name: Make the script files executable
         run: chmod +x scripts/check
-      # - name: prepare environment
-      #   working-directory: model
-      #   run: poetry shell 
-      - name: check format
+      - name: Check Format
         working-directory: model
         run: ../scripts/check
 
