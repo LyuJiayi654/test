@@ -19,7 +19,7 @@ jobs:
       - name: Install Dependencies
         working-directory: model
         run: poetry install --no-root
-        shell: bash
+        # shell: bash
 
   check:
     needs: setup
