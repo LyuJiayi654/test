@@ -5,7 +5,6 @@ on:
       branches:
         - test
       paths:
-        - "**.py"
         - "taihe/**"
     pull_request:
 
