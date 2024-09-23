@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 cd ..
+echo $(pwd)
 cd model
 poetry run black --diff . || exit 1
 poetry run ruff check || exit 1
