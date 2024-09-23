@@ -1,4 +1,3 @@
 #!/usr/bin/bash
-poetry shell
 poetry run black --diff . || exit 1
 poetry run ruff check || exit 1
