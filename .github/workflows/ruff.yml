@@ -2,8 +2,11 @@ name: format
 
 on: 
   push:
-   branches:
-    - main
+    branches:
+      - main
+    paths:
+      - "**.py"
+      - "taihe/**"
   pull_request:
 
 jobs:

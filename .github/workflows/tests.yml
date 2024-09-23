@@ -2,8 +2,11 @@ name: tests
 
 on: 
     push:
-     branches:
-      - test
+      branches:
+        - test
+      paths:
+        - "**.py"
+        - "taihe/**"
     pull_request:
 
 jobs:
