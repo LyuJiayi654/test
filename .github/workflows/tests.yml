@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses:  ./.github/workflows/actions/install_independencies/
       - name: Install Dependencies
-        # working-directory: model
+        working-directory: model
         run: poetry install --no-root
         # shell: bash
 
