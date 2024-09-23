@@ -16,6 +16,8 @@ jobs:
   install_dependencies:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses:  ./.github/workflows/actions/install_independencies/
       - name: Install Dependencies
         # working-directory: model
         run: poetry install --no-root
