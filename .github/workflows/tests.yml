@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses:  ./.github/workflows/actions/install_independencies/
       - name: Make the script files executable
-        run: chmod +x check
+        run: chmod +x scripts/check
       - name: check format
         working-directory: model
         run: ../scripts/check
