@@ -33,7 +33,7 @@ jobs:
         run: chmod +x check
       - name: check format
         working-directory: model
-        run: ./check
+        run: ../scripts/check
 
   all_checks_passed:
     needs:
