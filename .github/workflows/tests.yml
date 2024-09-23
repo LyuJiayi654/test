@@ -5,7 +5,7 @@ on:
       branches:
         - test
       paths:
-        - "taihe/**"
+        - "model/**"
     pull_request:
 
 jobs:
