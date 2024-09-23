@@ -32,6 +32,7 @@ jobs:
       - name: Make the script files executable
         run: chmod +x check
       - name: check format
+        working-directory: model
         run: ./check
 
   all_checks_passed:
