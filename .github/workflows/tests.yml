@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies
-        working-directory: model
+        # working-directory: model
         run: poetry install --no-root
         # shell: bash
 
