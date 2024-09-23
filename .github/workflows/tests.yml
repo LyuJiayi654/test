@@ -1,12 +1,7 @@
 name: tests
 
 on: 
-    push:
-      branches:
-        - test
-      paths:
-        - "model/**"
-    pull_request:
+    [push, pull_request]
 
 jobs:
   setup:
@@ -26,8 +21,7 @@ jobs:
       - name: Make the script files executable
         run: chmod +x scripts/check
       - name: Check Format
-        working-directory: model
-        run: ../scripts/check
+        run: scripts/check
 
   all_checks_passed:
     needs:
