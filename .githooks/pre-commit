@@ -1,7 +1,4 @@
 #!/usr/bin/bash
-# cd ..
-echo $(pwd)
 ./scripts/check
-
 exitCode="$?"
 exit $exitCode
