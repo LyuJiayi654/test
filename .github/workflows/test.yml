@@ -18,9 +18,6 @@ jobs:
       - name: Install Dependencies
         working-directory: model
         run: poetry lock --no-update && poetry install --no-root
-      - name: Activate Environment
-        working-directory: model
-        run: poetry shell
       - name: Test and Report Coverage
         run: scripts/test
 
