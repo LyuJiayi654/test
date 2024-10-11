@@ -5,3 +5,4 @@ poetry run coverage run -p hello.py
 poetry run coverage run -p try.py
 poetry run coverage combine
 poetry run coverage report
+clang -v

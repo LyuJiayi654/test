@@ -18,6 +18,11 @@ jobs:
       - name: Install Dependencies
         working-directory: model
         run: poetry lock --no-update && poetry install --no-root
+      - name: Set up Clang
+        uses: egor-tensin/setup-clang@v1
+        with:
+          version: latest
+          platform: x64
       - name: Test and Report Coverage
         run: scripts/test
 
