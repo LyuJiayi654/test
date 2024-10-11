@@ -1,5 +1,6 @@
 #!/usr/bin/bash
-cd model
+cd `dirname $0`
+cd ../model
 poetry run coverage run -p hello.py
 poetry run coverage run -p try.py
 poetry run coverage combine
