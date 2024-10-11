@@ -1,0 +1,29 @@
+name: test
+
+on: 
+    [push, pull_request]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/actions/install_independencies/
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses:  ./.github/workflows/actions/install_independencies/
+      - name: Install Dependencies
+        working-directory: model
+        run: poetry lock --no-update && poetry install --no-root && poetry shell
+      - name: Test and Report Coverage
+        run: scripts/test
+
+  all_tests_passed:
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "All tests passed"
