@@ -27,6 +27,9 @@ runs:
         cache-dependency-path: ./model/poetry.lock
     - name: Try
       run: source .venv/bin/activate
+      work directory: ./model
+      shell: bash
+    - name: Ruff
       run: poetry run ruff check
       work directory: ./model
       shell: bash
