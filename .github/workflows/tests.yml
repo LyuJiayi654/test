@@ -23,7 +23,7 @@ jobs:
         run: poetry show
       - name: Activate virtual environment
         working-directory: model
-        run: poetry shell
+        run: poetry shell < /dev/null
       - name: Check Format
         run: scripts/check
 
