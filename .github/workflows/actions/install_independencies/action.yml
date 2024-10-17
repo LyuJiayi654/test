@@ -26,3 +26,4 @@ runs:
         cache: "poetry"
     - name: Install Dependencies
       run: poetry lock --no-update && poetry install --no-root
+      shell: bash
