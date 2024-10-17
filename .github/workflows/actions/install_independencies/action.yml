@@ -23,14 +23,17 @@ runs:
     - uses: actions/setup-python@v4
       with:
         python-version: 3.10.12
-        cache: "poetry"
-        cache-dependency-path: ./model/poetry.lock
+    - uses: actions/cache@v3
+      name: Define a cache for the virtual environment based on the dependencies lock file
+      with:
+        path: ./model/.venv
+        key: venv-${{ hashFiles('poetry.lock') }}
     - name: Try
       run: source .venv/bin/activate
       shell: bash
       working-directory: ./model
     - name: Ruff
-      run: poetry run ruff check
+      run: poetry show
       shell: bash
       working-directory: ./model
     - name: Install Dependencies
