@@ -23,9 +23,7 @@ jobs:
         run: poetry show
       - name: Activate virtual environment
         working-directory: model
-        run: |
-          source .venv/bin/activate
-          poetry shell
+        run: poetry shell
       - name: Check Format
         run: scripts/check
 
