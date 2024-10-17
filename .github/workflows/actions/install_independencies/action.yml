@@ -34,7 +34,7 @@ runs:
 
     - name: Restore Poetry cache
       if: steps.cache.outputs.cache-hit == 'true'
-      run: poetry run ruff check
+      run: poetry run -C model ruff check
       shell: bash
 
     - name: Install Poetry
