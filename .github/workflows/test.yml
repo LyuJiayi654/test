@@ -15,14 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses:  ./.github/workflows/actions/install_independencies/
-      - uses: actions/cache@v3
-        name: Define a cache for the virtual environment based on the dependencies lock file
-        with:
-          path: ./model/.venv
-          key: venv-${{ hashFiles('poetry.lock') }}
-      - name: Install Dependencies
-        working-directory: model
-        run: poetry lock --no-update && poetry install --no-root
       - name: Set up Clang
         uses: egor-tensin/setup-clang@v1
         with:
