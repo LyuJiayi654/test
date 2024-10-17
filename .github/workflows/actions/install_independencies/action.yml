@@ -32,11 +32,6 @@ runs:
         restore-keys: |
           ${{ runner.os }}-poetry-
 
-    - name: Restore Poetry cache
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: poetry run -C model ruff check
-      shell: bash
-
     - name: Install Poetry
       if: steps.cache.outputs.cache-hit != 'true'
       run: poetry lock --no-update -C model && poetry install --no-root -C model
