@@ -27,6 +27,7 @@ runs:
         cache-dependency-path: ./model/poetry.lock
     - name: Try
       run: poetry run ruff check -C model
+      shell: bash
     - name: Install Dependencies
       run: poetry lock --no-update -C model && poetry install --no-root -C model
       shell: bash
