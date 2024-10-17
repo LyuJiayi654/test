@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 cd `dirname $0`
 cd ../model
-poetry run black --diff . || exit 1
+poetry run black --diff --check . || exit 1
 poetry run ruff check || exit 1
