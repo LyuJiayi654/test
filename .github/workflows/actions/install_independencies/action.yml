@@ -25,6 +25,4 @@ runs:
         python-version: 3.10.12
         cache: "poetry"
     - name: Install Dependencies
-      with:
-        path: ./model
       run: poetry lock --no-update && poetry install --no-root
