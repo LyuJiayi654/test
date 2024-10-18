@@ -21,9 +21,6 @@ jobs:
       - name: Show Dependencies
         working-directory: model
         run: poetry show
-      - name: Activate virtual environment
-        working-directory: model
-        run: poetry shell < /dev/null
       - name: Check Format
         run: scripts/check
 
