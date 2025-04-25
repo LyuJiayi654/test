@@ -21,16 +21,3 @@ runs:
         echo "$HOME/.cargo/bin" >> $GITHUB_PATH
         
         uv --version
-
-    - name: Create virtual environment and install dependencies
-      shell: bash
-      run: |
-        uv venv --python=python
-        
-        source .venv/bin/activate
-        
-        uv pip install -e .
-        
-        uv pip compile pyproject.toml -o uv.lock
-        
-        pip list
