@@ -1,32 +1,36 @@
 name: "Install Dependencies"
-description: "Action to build the project dependencies from the main versions"
+description: "Action to build the project dependencies using uv"
 inputs:
   python_version:
     required: true
     type: string
     default: "3.10.12"
-  poetry_version:
-    required: true
-    type: string
-    default: "1.8.3"
 
 runs:
   using: composite
   steps:
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
+    - name: Set up Python ${{ inputs.python_version }}
+      uses: actions/setup-python@v4
       with:
-        version: ${{ inputs.poetry_version }}
-        virtualenvs-create: true
-        virtualenvs-in-project: true
-        installer-parallel: true
-    - uses: actions/setup-python@v4
-      id: poetry_cache
-      with:
-        python-version: 3.10.12
-        cache: "poetry"
+        python-version: ${{ inputs.python_version }}
 
-    - name: Install Poetry
-      if: steps.poetry_cache.outputs.cache-hit != 'true'
-      run: poetry lock --no-update -C model && poetry install --no-root -C model
+    - name: Install uv
       shell: bash
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        
+        uv --version
+
+    - name: Create virtual environment and install dependencies
+      shell: bash
+      run: |
+        uv venv --python=python
+        
+        source .venv/bin/activate
+        
+        uv pip install -e .
+        
+        uv pip compile pyproject.toml -o uv.lock
+        
+        pip list

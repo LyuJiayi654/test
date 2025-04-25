@@ -1,32 +1,26 @@
-name: tests
+name: test
 
-on: 
+on:
     [push, pull_request]
 
 jobs:
-  setup:
+  check_and_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/install_independencies/
-
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses:  ./.github/workflows/actions/install_independencies/
       - name: Install Dependencies
-        working-directory: model
-        run: poetry install --no-root
-      - name: Show Dependencies
-        working-directory: model
-        run: poetry show
+        working-directory: compiler
+        run: poetry lock --no-update && poetry install --no-root
+      - name: Set up Clang
+        uses: egor-tensin/setup-clang@v1
+        with:
+          version: 15
+          platform: x64
+      - name: Generate Code
+        working-directory: compiler
+        run: poetry run ./generate-grammar
       - name: Check Format
         run: scripts/check
-
-  all_checks_passed:
-    needs:
-      - check
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "All checks passed"
+      - name: Test and Report Coverage
+        run: scripts/test
