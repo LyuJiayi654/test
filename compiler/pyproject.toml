@@ -1,6 +1,6 @@
 [project]
 dynamic = ["version"]
-name = "my test"
+name = "test-project"
 description = "it is my test"
 requires-python = ">=3.10"
 dependencies = [
